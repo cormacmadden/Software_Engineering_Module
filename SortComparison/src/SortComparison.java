@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 // -------------------------------------------------------------------------
 
 /**
@@ -82,7 +86,7 @@ class SortComparison {
 	 */
 	static double[] quickSort(double a[]) {
 
-		quicksort(a, 0, a.length-1);
+		quicksort(a, 0, a.length - 1);
 
 		return a;
 
@@ -281,7 +285,25 @@ class SortComparison {
 
 	public static void main(String[] args) {
 
-		// todo: do experiments as per assignment instructions
+		double[] annualIntRt = new double[5];
+		fillArray(annualIntRt);
+		for (int i = 0; i < annualIntRt.length; i++)
+			System.out.println(annualIntRt[i]);
 	}
+
+	public static void fillArray(double[] ary) {
+	    	try {
+	    	Scanner s = new Scanner(new File("numbersReverse.txt")); 
+	    	int[] array = new int[s.nextInt()];
+	    	for (int i = 0; i < array.length; i++) {
+	    	    array[i] = s.nextInt();
+	    	}
+	    	}
+	        catch(FileNotFoundException filenotfoundexception)
+	        {
+	            System.out.println("File not found.");
+	        }
+	}
+	// todo: do experiments as per assignment instructions
 
 }// end class

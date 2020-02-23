@@ -4,6 +4,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import static org.junit.Assert.*;
+import java.util.*; 
+import java.nio.charset.StandardCharsets; 
+import java.nio.file.*; 
+import java.io.*; 
 //-------------------------------------------------------------------------
 /**
  *  Test class for SortComparison.java
@@ -68,6 +72,17 @@ public class SortComparisonTest
         assertTrue(Arrays.equals(SortComparison.mergeSortRecursive(input),result));
     }
     
+    @Test
+    public void testFromFiles()
+    {
+    	// Java program to illustrate reading data from file 
+    	// using nio.File 
+
+ 
+    	
+    }
+
+    
     // ----------------------------------------------------------
     /**
      *  Main Method.
@@ -76,7 +91,24 @@ public class SortComparisonTest
      */
     public static void main(String[] args)
     {
-        //TODO: implement this method
+        double[] annualIntRt = new double[5];
+        fillArray(annualIntRt);
+        for (int i = 0; i < annualIntRt.length; i++)
+            System.out.println(annualIntRt[i]);
+    }
+    
+    public static void fillArray(double[] ary) {
+        try {
+            File arrayInput = new File("numbers10.txt");
+            Scanner in = new Scanner(arrayInput);
+            int i = 0;  
+            while (in.hasNextLine())
+                ary[i++] = in.nextDouble();
+            in.close();
+        }
+        catch (FileNotFoundException e) {
+            System.exit(1);
+        }
     }
 
 }
