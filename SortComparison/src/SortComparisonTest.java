@@ -8,11 +8,15 @@ import java.util.*;
 import java.nio.charset.StandardCharsets; 
 import java.nio.file.*; 
 import java.io.*; 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 //-------------------------------------------------------------------------
 /**
  *  Test class for SortComparison.java
  *
- *  @author
+ *  @CormacMadden
  *  @version HT 2020
  */
 @RunWith(JUnit4.class)

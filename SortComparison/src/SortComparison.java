@@ -8,7 +8,7 @@ import java.util.Scanner;
  * This class contains static methods that implementing sorting of an array of
  * numbers using different sort algorithms.
  *
- * @author
+ * @CormacMadden
  * @version HT 2020
  */
 
@@ -285,24 +285,23 @@ class SortComparison {
 
 	public static void main(String[] args) {
 
-		double[] annualIntRt = new double[5];
-		fillArray(annualIntRt);
-		for (int i = 0; i < annualIntRt.length; i++)
-			System.out.println(annualIntRt[i]);
+		double[] ary = new double[100];
+		fillArray(ary);
+		double[] output = new double[100];
+		output = quickSort(ary);
+		for (int i = 0; i < ary.length; i++)
+			System.out.println(output[i]);
 	}
 
 	public static void fillArray(double[] ary) {
-	    	try {
-	    	Scanner s = new Scanner(new File("numbersReverse.txt")); 
-	    	int[] array = new int[s.nextInt()];
-	    	for (int i = 0; i < array.length; i++) {
-	    	    array[i] = s.nextInt();
-	    	}
-	    	}
-	        catch(FileNotFoundException filenotfoundexception)
-	        {
-	            System.out.println("File not found.");
-	        }
+		try {
+			Scanner s = new Scanner(new File("numbers100.txt"));
+			for (int i = 0; i < ary.length; i++) {
+				ary[i] = s.nextDouble();
+			}
+		} catch (FileNotFoundException filenotfoundexception) {
+			System.out.println("File not found.");
+		}
 	}
 	// todo: do experiments as per assignment instructions
 
