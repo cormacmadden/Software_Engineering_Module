@@ -6,6 +6,12 @@
  *
  * @CormacMadden
  * @version HT 2020
+ * 
+ *  //NOTE!!!:
+ *  Hi I've only submitted the image of github to blackboard, but also I forgot about the blackboard submission until the 27th, 
+ *  I had the assignment completed and submitted to Webcat on the 26th, hopefully the delayed upload to blackboard doesn't affect my grade.
+ *  Thanks,
+ *  Cormac
  */
 
 class SortComparison {
@@ -282,8 +288,5 @@ class SortComparison {
 	public static void main(String[] args) {
 
 	}
-
-
-	// todo: do experiments as per assignment instructions
 
 }// end class
