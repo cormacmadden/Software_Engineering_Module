@@ -158,7 +158,6 @@ public class SortComparisonTest
 
     }
 
-    // TODO: add more tests here. Each line of code and each decision in Collinear.java should
     // be executed at least once from at least one test.
     @Test
     public void testSort()

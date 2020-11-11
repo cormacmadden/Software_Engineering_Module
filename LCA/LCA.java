@@ -1,7 +1,12 @@
+
 // Java Program for Lowest Common Ancestor in a Binary Tree 
 // A O(n) solution to find LCA of two given values n1 and n2 
-import java.util.ArrayList; 
-import java.util.List; 
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Test; 
   
 // A Binary Tree node 
 class Node { 
@@ -78,9 +83,13 @@ public class LCA
   
         return false; 
     } 
-  
+
+public static void main(String[] args) {
+    
+}
+
     @Test
-    void findLCATest(){ 
+    public void findLCATest(){ 
         LCA tree = new LCA(); 
         tree.root = new Node(1); 
         tree.root.left = new Node(2); 
@@ -89,12 +98,11 @@ public class LCA
         tree.root.left.right = new Node(5); 
         tree.root.right.left = new Node(6); 
         tree.root.right.right = new Node(7); 
-  
-        AssertEquals(2, tree.findLCA(4,5)); 
-        AssertEquals(1, tree.findLCA(4,6)); 
-        AssertEquals(1, tree.findLCA(3,4)); 
-        AssertEquals(2, tree.findLCA(2,4)); 
-      
-    } 
+
+        assertEquals(2, tree.findLCA(4,5)); 
+        assertEquals(1, tree.findLCA(4,6)); 
+        assertEquals(1, tree.findLCA(3,4)); 
+        assertEquals(2, tree.findLCA(2,4)); 
+    }
 } 
 // Some code is written by Sreenivasulu Rayanki. 
