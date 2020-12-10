@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GitHubApi.wwwroot
+namespace GitHubApi
 {
-    public class API
+    public class RestClient
     {
     }
-
 }
