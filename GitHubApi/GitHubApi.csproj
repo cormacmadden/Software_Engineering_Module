@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <Content Include="Models\API.cs" />
-    <Content Include="Models\Class.cs" />
     <Content Include="Models\Product.cs" />
   </ItemGroup>
 

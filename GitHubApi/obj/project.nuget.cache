@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hnvSZd2HHqwtezEcdygyICYslyMHqaRUbNUyOmev1rlEdwAd8qwfAxcwC7XJJI0a9LXaDGHz4gqkPpggu3TOOw==",
+  "dgSpecHash": "lJfmXjZ9bkaLCBptL8dnAqEF7XADdXwuLFKRO5/+gJuwIfMzn/7zmgvQYjpRLtrdmSjCN68FLB3MG/2EBfCtFg==",
   "success": true,
   "projectFilePath": "D:\\Personal\\College\\Software Engineering\\ASP Github API\\GitHubApi\\GitHubApi.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Cormac\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\Cormac\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
