@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "lJfmXjZ9bkaLCBptL8dnAqEF7XADdXwuLFKRO5/+gJuwIfMzn/7zmgvQYjpRLtrdmSjCN68FLB3MG/2EBfCtFg==",
+  "dgSpecHash": "t6Rc582Uc39YdnShqEdehPZ8kW7cSviD2afrYHyOTYUsEFjIMnb0M8uNxHdvg0j7I/NwicG9d2Cy520/ofRaiQ==",
   "success": true,
-  "projectFilePath": "D:\\Personal\\College\\Software Engineering\\ASP Github API\\GitHubApi\\GitHubApi.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\Personal\\College\\Software Engineering\\GitHubAPI3\\GitHub API with Blazer\\GitHub API with Blazer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Cormac\\.nuget\\packages\\system.net.http.json\\5.0.0\\system.net.http.json.5.0.0.nupkg.sha512",
+    "C:\\Users\\Cormac\\.nuget\\packages\\system.text.json\\5.0.0\\system.text.json.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
