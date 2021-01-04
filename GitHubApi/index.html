@@ -15,7 +15,6 @@
     <div class="GitHub_d3"></div>
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="index.js"></script>
-    <script src="d3.js"></script>
     <div id="divResult"></div>
 
     <script>
@@ -25,10 +24,13 @@
       btnRepos.addEventListener("click", getNames);
 
       var data = new Array();
-      const contributors = new Array();
+      var contributors = new Array();
+      for (var i = 0; i < contributors.length; i++) { 
+        contributors[i] = new Array(2); 
+      } 
 
       function Object(date, name, commits) {
-        this.fullname = name;
+        this.name = name;
         this.date = date;
         this.commits = commits;
       }
@@ -51,6 +53,7 @@
 
         const response = await fetch(url);
         const result = await response.json();
+
         const name = result.name;
         divResult.append(name);
       }
@@ -60,49 +63,72 @@
         clear();
 
         const url3 = "https://api.github.com/repos/freecodecamp/freecodecamp/contributors";
+        const url4 = "https://api.github.com/repos/freecodecamp/freecodecamp/stats/contributors";
 
-        const response = await fetch(url3);
+        const response = await fetch(url4);
         const result = await response.json();
-
+        console.log(result)
+        console.log("Testing :" + result[99].weeks[1602979200])
         result.forEach((i) => {
           contributors.push(i.login);
         });
-        console.log(result);
-        console.log(contributors);
-
-        const name = result.name;
-        divResult.append(name);
+     //  getData();
       }
 
       // Get the data for each year
 
       async function getData() {
-        clear();
 
-        const Dataurl =
-          "https://api.github.com/search/commits?q=repo:freecodecamp/freecodecamp author-date:2014-01-01..2015-01-01 author:${Author}";
+        clear();
+        const username = "cormacmadden"
+        const password = "nJM64e7lAmb2"
+ //     const author = "QuincyLarson"
+        asyncForEach(contributors,async author => {
+        var Dataurl = `https://api.github.com/search/commits?q=repo:freecodecamp/freecodecamp author-date:2015-01-01..2016-01-01 author:${author}`;
         const headers = {
-          Accept: "application/vnd.github.cloak-preview",
+        "Authorization" : `Token 5f78c752ebb920d84133731dd602b7f4d3226486`,
+        Accept: "application/vnd.github.cloak-preview"
         };
         const response = await fetch(Dataurl, {
           method: "GET",
           headers: headers,
         });
-        console.log(response);
         const result = await response.json();
-        console.log(result);
-        var object = new Object(
-          "2014-01-01",
-          result.author,
-          result.total_count
-        );
-        //       object.fullname = result.name;
-        //       object.date = "2014-01-01";
-        //       object.commits = result.total_count;
+        var object = new Object("2016-01-01", author, result.total_count);
         data.push(object);
+        })
+
+        asyncForEach(contributors,async author => {
+        var Dataurl = `https://api.github.com/search/commits?q=repo:freecodecamp/freecodecamp author-date:2016-01-01..2017-01-01 author:${author}`;
+        const headers = {
+        "Authorization" : `Token 5f78c752ebb920d84133731dd602b7f4d3226486`,
+        Accept: "application/vnd.github.cloak-preview"
+        };
+        const response = await fetch(Dataurl, {
+          method: "GET",
+          headers: headers,
+        });
+        const result = await response.json();
+        var object = new Object("2017-01-01", author, result.total_count);
+        data.push(object);
+        })
+/*
+        asyncForEach(contributors,async author => {
+        var Dataurl = `https://api.github.com/search/commits?q=repo:freecodecamp/freecodecamp author-date:2017-01-01..2018-01-01 author:${author}`;
+        const headers = {
+        "Authorization" : `Token 5f78c752ebb920d84133731dd602b7f4d3226486`,
+        Accept: "application/vnd.github.cloak-preview"
+        };
+        const response = await fetch(Dataurl, {
+          method: "GET",
+          headers: headers,
+        });
+        const result = await response.json();
+        var object = new Object("2018-01-01", author, result.total_count);
+        data.push(object);
+        })
+        */
         console.log(data);
-        const name = result.name;
-        divResult.append(name);
       }
 
       // Get the number of commits
@@ -110,6 +136,12 @@
       function clear() {
         while (divResult.firstChild)
           divResult.removeChild(divResult.firstChild);
+      }
+
+      async function asyncForEach(array, callback) {
+        for (let index = 0; index < array.length; index++) {
+            await callback(array[index], index, array);
+        }
       }
     </script>
   </body>
