@@ -6,96 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
     <title>GitHub API Demo</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+      text {
+        font-size: 16px;
+        font-family: Open Sans, sans-serif;
+      }
+
+      text.title {
+        font-size: 24px;
+        font-weight: 500;
+      }
+
+      text.subTitle {
+        font-weight: 500;
+        fill: #777777;
+      }
+
+      text.caption {
+        font-weight: 400;
+        font-size: 14px;
+        fill: #777777;
+      }
+
+      text.label {
+        font-weight: z600;
+      }
+
+      text.valueLabel {
+        font-weight: 300;
+      }
+
+      text.yearText {
+        font-size: 64px;
+        font-weight: 700;
+        opacity: 0.25;
+      }
+
+      .tick text {
+        fill: #777777;
+      }
+
+      .xAxis .tick:nth-child(2) text {
+        text-anchor: start;
+      }
+
+      .tick line {
+        shape-rendering: CrispEdges;
+        stroke: #dddddd;
+      }
+
+      .tick line.origin {
+        stroke: #aaaaaa;
+      }
+
+      path.domain {
+        display: none;
+      }
+    </style>
   </head>
+
   <body>
-    <hi> Github Assignment</hi>
+    <hi>Repository Commits Bar Chart Race</hi>
 
     <button id="btnRepos">Repos</button>
 
     <div class="GitHub_d3"></div>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script></script>
     <script src="index.js"></script>
+    <script src="d3.js" defer></script>
     <div id="divResult"></div>
 
-    <script>
-            const btnRepos = document.getElementById("btnRepos");
-
-            const divResult = document.getElementById("divResult");
-            btnRepos.addEventListener("click", getNames);
-
-            var data = new Array();
-            var contributors = new Array();
-            for (var i = 0; i < contributors.length; i++) {
-              contributors[i] = new Array(2);
-            }
-
-            function Object(date, name, commits) {
-              this.date = date;
-              this.name = name;
-              this.value = commits;
-            }
-
-            var years = new Array();
-                  years = ["2014-01-01","2015-01-01","2016-01-01","2017-01-01","2018-01-01","2019-01-01","2020-01-01","2021-01-01"];
-
-
-            // Get the general data for the repo
-
-            async function getRepo() {
-              clear();
-              const Tempurl =
-                "https://api.github.com/search/repositories?q=stars:150000..300000";
-              const url = "https://api.github.com/repos/freecodecamp/freecodecamp";
-              const url2 = "https://api.github.com/repos/freecodecamp/freecodecamp";
-
-              const response = await fetch(url);
-              const result = await response.json();
-
-              const name = result.name;
-              divResult.append(name);
-            }
-
-            // Get the Names
-            async function getNames() {
-              clear();
-
-              const url3 = "https://api.github.com/repos/freecodecamp/freecodecamp/contributors";
-              const url4 = "https://api.github.com/repos/freecodecamp/freecodecamp/stats/contributors";
-
-              const response = await fetch(url4);
-              const result = await response.json();
-              console.log(result);
-              console.log("Testing :" + result[99].weeks[100].c);
-
-             asyncForEach(result, async author => {
-                var i;
-                  var year = 0;
-                  var count = 0;
-                  var object;
-
-                  for(i = 0; i<author.weeks.length; i++){
-                      count += author.weeks[i].c;
-                      if((i%52)==0){
-                        var object = new Object(years[year],author.author.login,count);
-                        console.log("Test");
-                        data.push(object);
-                        year++;
-                      }
-                   }
-                })
-              console.log(data);
-           }
-
-            function clear() {
-              while (divResult.firstChild)
-                divResult.removeChild(divResult.firstChild);
-            }
-
-            async function asyncForEach(array, callback) {
-              for (let index = 0; index < array.length; index++) {
-                  await callback(array[index], index, array);
-              }
-            }
-    </script>
   </body>
 </html>
