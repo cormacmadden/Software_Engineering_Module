@@ -30,9 +30,9 @@
             }
 
             function Object(date, name, commits) {
-              this.name = name;
               this.date = date;
-              this.commits = commits;
+              this.name = name;
+              this.value = commits;
             }
 
             var years = new Array();
@@ -85,65 +85,6 @@
                 })
               console.log(data);
            }
-
-
-            // Get the data for each year
-
-            async function getData() {
-
-              clear();
-              const username = "cormacmadden"
-              const password = "nJM64e7lAmb2"
-       //     const author = "QuincyLarson"
-              asyncForEach(contributors,async author => {
-              var Dataurl = `https://api.github.com/search/commits?q=repo:freecodecamp/freecodecamp author-date:2015-01-01..2016-01-01 author:${author}`;
-              const headers = {
-              "Authorization" : `Token 5f78c752ebb920d84133731dd602b7f4d3226486`,
-              Accept: "application/vnd.github.cloak-preview"
-              };
-              const response = await fetch(Dataurl, {
-                method: "GET",
-                headers: headers,
-              });
-              const result = await response.json();
-              var object = new Object("2016-01-01", author, result.total_count);
-              data.push(object);
-              })
-
-              asyncForEach(contributors,async author => {
-              var Dataurl = `https://api.github.com/search/commits?q=repo:freecodecamp/freecodecamp author-date:2016-01-01..2017-01-01 author:${author}`;
-              const headers = {
-              "Authorization" : `Token 5f78c752ebb920d84133731dd602b7f4d3226486`,
-              Accept: "application/vnd.github.cloak-preview"
-              };
-              const response = await fetch(Dataurl, {
-                method: "GET",
-                headers: headers,
-              });
-              const result = await response.json();
-              var object = new Object("2017-01-01", author, result.total_count);
-              data.push(object);
-              })
-      /*
-              asyncForEach(contributors,async author => {
-              var Dataurl = `https://api.github.com/search/commits?q=repo:freecodecamp/freecodecamp author-date:2017-01-01..2018-01-01 author:${author}`;
-              const headers = {
-              "Authorization" : `Token 5f78c752ebb920d84133731dd602b7f4d3226486`,
-              Accept: "application/vnd.github.cloak-preview"
-              };
-              const response = await fetch(Dataurl, {
-                method: "GET",
-                headers: headers,
-              });
-              const result = await response.json();
-              var object = new Object("2018-01-01", author, result.total_count);
-              data.push(object);
-              })
-              */
-              console.log(data);
-            }
-
-            // Get the number of commits
 
             function clear() {
               while (divResult.firstChild)
